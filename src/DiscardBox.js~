@@ -1,0 +1,9 @@
+import React from 'react';
+
+const Discardbox = React.createClass({
+    render() {
+    },
+    propTypes: {
+	card: React.PropTypes.object
+    }
+});

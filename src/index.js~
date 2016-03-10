@@ -1,0 +1,11 @@
+ import React from 'react';
+ import { render } from 'react-dom';
+ import { App } from './App';
+ import Card from './Card';
+ require('../public/css/card.css');
+
+// render(<App />, document.getElementById('root'));
+ render(<Card />, document.getElementById('root'));
+
+//import * as _t from './helloworld';
+// document.write("this would be something new that should trigger a resave")

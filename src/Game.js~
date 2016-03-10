@@ -1,0 +1,12 @@
+//want a function that will receive clicks on the card
+
+//want a function that will call registered functions with the card that was selected
+
+
+let observer = undefined;
+
+function cardSelected(data) {
+    if( observer != undefined ) {
+	observer(data);
+    }
+}

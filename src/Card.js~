@@ -1,0 +1,43 @@
+import React from 'react';
+import { ItemTypes } from './Constants';
+import { DragSource } from 'react-dnd';
+
+
+const cardSource = {
+    beginDrag(props) {
+	return {};
+    }
+}
+
+function collect(connect, monitor) {
+    return {
+	connectDragSource: connect.dragSource(),
+	isDragging: monitor.isDragging()
+    };
+}
+
+const Card = React.createClass({
+    cardClickHandler(event) {
+	const { rank, suit } = this.props;
+	this.props.clickHandler(event, { rank, suit } );
+    },
+    
+    render() {
+	const { connectDragSource, isDragging, suit } = this.props;
+	console.log('isDragging...' + isDragging);
+	return ( <div style={{
+	    opacity: isDragging ? 0.5 : 1,
+	    border: '1 solid red'
+	}} className="card">{suit}  </div> );
+    },
+    
+    propTypes: {
+	rank: React.PropTypes.number.isRequired,
+	suit: React.PropTypes.string.isRequired,
+	connectDragSource: React.PropTypes.func.isRequired,
+	isDragging: React.PropTypes.bool.isRequired
+    }
+});
+
+export default DragSource(ItemTypes.PITCH, cardSource, collect)(Card);
+

@@ -1,0 +1,29 @@
+import React, { PropTypes } from 'react';
+import Card from './Card';
+import { cardSelected, validCardSelection } from './Game';
+
+const Cardbox = React.createClass({
+	render() {
+	    const { onCardClick, suit, rank } = this.props;
+
+	return(
+		<div className="cardbox" onClick={this.handleClick}>
+		<Card suit={suit} rank={rank}  />
+	        </div>
+	);
+    },
+    propTypes: {
+	onCardClick: PropTypes.func.isRequired,
+	suit: PropTypes.string.isRequired,
+	rank: PropTypes.number.isRequired,
+	cardType: PropTypes.string.isRequired
+    },
+    handleClick() {
+	if( validCardSelection( this.props.cardType ) ) {
+	    cardSelected({suit: this.props.suit, rank: this.props.rank});
+	}
+    }
+});
+
+
+export default Cardbox;

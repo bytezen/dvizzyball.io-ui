@@ -1,0 +1,8 @@
+import React from 'react';
+import Cardbox from './CardBox.js';
+
+const Cardhand = React.createClass({
+
+});
+
+export default Cardhand;
